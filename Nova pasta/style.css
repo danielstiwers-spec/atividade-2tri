@@ -26,7 +26,19 @@ main{
     height: 40px;
     justify-content: left;
     align-items: start;
+    color: white;
 }
-footer{
+.montando{
+    color: white;
+    justify-content: flex-end;
+    display: flex;
+}
+.lorem{
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+}
 
+footer{
+    
 }
