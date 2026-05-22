@@ -24,17 +24,36 @@ main{
     width: 70%;
     height: 285px;
     color: white;
-    display: flex;
     margin-top: 1%;
 }
-.txtdest{
+.title1{
     background-color: black;
-    width: 100%;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding-left: 20px;
+    margin: 0%;
+}
+.quadradobranco{
+    background-color: white;
+    height: 85px;
+    width: 300px;
+    margin-left: 1%;
+    margin-bottom: 0%;
+}
+.quadradobranco2{
+    background-color: white;
+    height: 102px;
+    width: 646px;
+    margin-left: 1%;
+    margin-top: 0%;
+}
+.txt2dest{
+    display: flex;
+}
+.txt3dest{
+    display: flex;
 }
 .search{
     background-color: gray;
@@ -55,7 +74,7 @@ main{
     align-items: center;
     justify-content: flex-start;
     padding-left: 20px; 
-
+    margin: 0%;
 }
 footer{
     background-color: gray;
@@ -72,10 +91,9 @@ footer{
 }
 
 h2{
-    display: flex;
-    align-items: center;
+    margin-left: 2%;
 }
 h3{
-    display: flex;
-    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 2%;
 }
