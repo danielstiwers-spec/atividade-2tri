@@ -39,14 +39,14 @@ main{
     background-color: white;
     height: 85px;
     width: 300px;
-    margin-left: 1%;
+    margin-left: 2%;
     margin-bottom: 0%;
 }
 .quadradobranco2{
     background-color: white;
     height: 102px;
-    width: 646px;
-    margin-left: 1%;
+    width: 300px;
+    margin-left: 2%;
     margin-top: 0%;
 }
 .txt2dest{
@@ -88,12 +88,19 @@ footer{
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    flex-direction: row;
+    margin-left: 1%;
 }
 
 h2{
     margin-left: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
 }
 h3{
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 2%;
+    width: 588px;
 }
