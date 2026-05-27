@@ -5,26 +5,43 @@ header{
     display: flex;
     align-items: end; 
 }
+
+/* MODIFICADO: Ajustado para permitir quebra de linha se os links não couberem */
 .txt1{
     background-color: rgba(0, 0, 0, 0.576);
     color: white;
     display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha no celular */
     font-size: 20px;
-    height: 40px;
+    min-height: 40px; /* Mudado de height fixo para min-height */
+    height: auto;     /* Permite crescer se o texto quebrar linha */
     width: 100%;
     justify-content: center;
     align-items: center;
     margin-bottom: 0%;
+    padding: 5px 0;
 }
+
+/* Ajuste nos links para não ficarem colados quando quebrarem linha */
+.txt1 a {
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+}
+
 main{
     width: 67%;
 }
+
+/* MODIFICADO: Removido height fixo para o texto não vazar no celular */
 .destaques{
     background-color: gray;
     width: 100%;
-    height: 300px;
+    height: auto; /* Mudado de 300px para auto */
+    min-height: 300px;
     color: white;
     margin-top: 1%;
+    padding-bottom: 15px;
 }
 .title1{
     background-color: black;
@@ -35,10 +52,13 @@ main{
     padding-left: 20px;
     margin: 0%;
 }
+
+/* MODIFICADO: max-width impede que o bloco saia da tela */
 .quadradobranco{
     background-color: white;
     height: 85px;
     width: 299px;
+    max-width: 90%; /* Não deixa estourar a largura */
     margin-left: 2%;
     margin-bottom: 0%;
 }
@@ -46,14 +66,19 @@ main{
     background-color: white;
     height: 102px;
     width: 299px;
+    max-width: 90%; /* Não deixa estourar a largura */
     margin-left: 2%;
     margin-top: 0%;
 }
+
+/* MODIFICADO: Permite que o quadrado branco e o texto se alinhem verticalmente se faltar espaço */
 .txt2dest{
     display: flex;
+    flex-wrap: wrap; 
 }
 .txt3dest{
     display: flex;
+    flex-wrap: wrap;
 }
 .search{
     background-color: gray;
@@ -75,14 +100,18 @@ input{
 .maislidos{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    /* margin-left: 7%; */
+    width: 90%;
     align-items: center;
-    height: 225px;
+    height: auto; /* Mudado de 225px para auto */
+    justify-content: center;
+    margin-left: 5%; 
 }
+
+/* MODIFICADO: Removido largura fixa em pixels */
 .txtlidos{
     background-color: black;
-    width: 365px;
+    width: 100%; /* Mudado de 365px para 100% */
+    box-sizing: border-box;
     height: 60px;
     display: flex;
     align-items: center;
@@ -90,18 +119,19 @@ input{
     padding-left: 20px;
     margin: 0%;
 }
+
+/* MODIFICADO: Removido largura fixa em pixels */
 ul{
     background: white;
-    width: 345px;
+    width: 100%; /* Mudado de 345px para 100% */
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    /* align-content: center; */
     justify-content: center;
-    /* align-items: center; */
     color: black;
     margin: 0;
-    height: 165px;
-
+    padding: 20px; /* Adicionado padding para afastar as bordas */
+    height: auto; /* Mudado de 165px para auto */
 }
 .quadrados{
     display: flex;
@@ -132,10 +162,13 @@ ul{
     width: 100%;
     justify-content: center;
 }
+
+/* MODIFICADO: Removido height fixo */
 .programação{
     background-color: gray;
     width: 49%;
-    height: 475px;
+    height: auto; /* Mudado de 475px para auto */
+    padding-bottom: 15px;
     color: white;
     margin-top: 1%;
     margin-right: 1%;
@@ -157,10 +190,13 @@ ul{
     align-items: center;
     width: 96%;
 }
+
+/* MODIFICADO: Removido height fixo */
 .webdesign{
     background-color: gray;
     width: 49%;
-    height: 475px;
+    height: auto; /* Mudado de 475px para auto */
+    padding-bottom: 15px;
     color: white;
     margin-top: 1%;
 }
@@ -203,12 +239,63 @@ h2{
     flex-direction: row;
     align-items: flex-end;
 }
+
+/* MODIFICADO: Removido largura fixa de 540px que quebrava o mobile */
 h3{
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 2%;
-    width: 540px;
+    margin-right: 2%;
+    width: auto; /* Mudado de 540px para auto */
+    max-width: 100%;
 }
 .pai{
     display: flex;
     width: 100%;
+}
+
+/* ==========================================================================
+   NOVA SEÇÃO: REGRAS EXCLUSIVAS PARA CELULAR (Telas de até 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Força o conteúdo principal e a barra lateral a ficarem um embaixo do outro */
+    .pai {
+        flex-direction: column;
+    }
+    
+    /* Faz a área dos artigos ocupar toda a largura da tela */
+    main {
+        width: 100%;
+    }
+    
+    /* Faz a barra de pesquisa/lateral ocupar toda a largura da tela abaixo do main */
+    .search {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    
+    /* Faz as colunas Programação e Webdesign se empilharem */
+    .mãe {
+        flex-direction: column;
+    }
+    
+    .programação, .webdesign {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    /* Diminui o tamanho da fonte do menu para caber melhor na tela menor */
+    .txt1 {
+        font-size: 14px;
+    }
+
+    /* Faz os 4 quadrados ocuparem mais espaço na tela do celular */
+    .quadro {
+        width: 44%;
+    }
+}
+button a{
+    text-decoration: none;
+    color: black;
 }
