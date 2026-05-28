@@ -52,14 +52,16 @@ main{
     padding-left: 20px;
     margin: 0%;
 }
-
+.content{
+    display: flex;
+}
 /* MODIFICADO: max-width impede que o bloco saia da tela */
 .quadradobranco{
     background-color: white;
-    height: 85px;
+    height: 200px;
     width: 299px;
     max-width: 90%; /* Não deixa estourar a largura */
-    margin-left: 2%;
+    margin-left: 5%;
     margin-bottom: 0%;
 }
 .quadradobranco2{
@@ -72,13 +74,20 @@ main{
 }
 
 /* MODIFICADO: Permite que o quadrado branco e o texto se alinhem verticalmente se faltar espaço */
-.txt2dest{
+.txt2dest {
     display: flex;
-    flex-wrap: wrap; 
+    /* Remove o flex-wrap temporariamente no desktop para garantir o lado a lado */
+    flex-shrink: 0; 
 }
-.txt3dest{
+
+.txt3dest {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; /* Organiza o título e o texto de cima para baixo */
+    align-items: flex-start; /* Alinha o texto à esquerda, igual ao modelo */
+    justify-content: flex-start;
+    padding-left: 20px; /* Cria o espaçamento entre o quadrado e o texto */
+    box-sizing: border-box;
+    flex: 1; /* Faz o texto ocupar todo o resto do espaço disponível */
 }
 .search{
     background-color: gray;
@@ -147,7 +156,7 @@ ul{
     background-color: white;
     width: 40%;
     height: 175px;
-    margin: 2%;
+    margin: 3%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -245,8 +254,8 @@ h3{
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 2%;
     margin-right: 2%;
-    width: auto; /* Mudado de 540px para auto */
-    max-width: 100%;
+    width: auto;
+    max-width: 91%;
 }
 .pai{
     display: flex;
@@ -256,7 +265,26 @@ h3{
 /* ==========================================================================
    NOVA SEÇÃO: REGRAS EXCLUSIVAS PARA CELULAR (Telas de até 768px)
    ========================================================================== */
-@media (max-width: 768px) {
+    @media (max-width: 768px) {
+    /* Força o quadrado e o texto do destaque a empilharem no celular */
+    .contentdest {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quadradobranco {
+        margin-left: 0;
+        margin-bottom: 15px;
+        width: 90%;
+        max-width: 300px;
+        color: transparent; /* Esconde a letra 'a' */
+    }
+
+    .txt3dest {
+        padding-left: 0;
+        padding: 0 15px;
+    }
+
     /* Força o conteúdo principal e a barra lateral a ficarem um embaixo do outro */
     .pai {
         flex-direction: column;
@@ -298,4 +326,7 @@ h3{
 button a{
     text-decoration: none;
     color: black;
+}
+ul li{
+    margin-left: 2%;
 }
