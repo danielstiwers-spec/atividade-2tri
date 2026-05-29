@@ -55,14 +55,17 @@ main{
 .content{
     display: flex;
 }
-/* MODIFICADO: max-width impede que o bloco saia da tela */
+/* MODIFICADO: Adicionado flex-shrink e travamento de estouro de texto */
 .quadradobranco{
     background-color: white;
     height: 200px;
     width: 299px;
-    max-width: 90%; /* Não deixa estourar a largura */
+    max-width: 90%; 
     margin-left: 5%;
     margin-bottom: 0%;
+    flex-shrink: 0;       /* Garante que o Flexbox não esmague a largura */
+    color: transparent;   /* Oculta a letra 'a' */
+    overflow: hidden;     /* Impede que o tamanho da letra empurre a altura */
 }
 .quadradobranco2{
     background-color: white;
@@ -265,21 +268,22 @@ h3{
 /* ==========================================================================
    NOVA SEÇÃO: REGRAS EXCLUSIVAS PARA CELULAR (Telas de até 768px)
    ========================================================================== */
-    @media (max-width: 768px) {
-    /* Força o quadrado e o texto do destaque a empilharem no celular */
-    .contentdest {
+@media (max-width: 768px) {
+    /* CORRIGIDO: Nome alterado de .contentdest para .content */
+    .content {
         flex-direction: column;
         align-items: center;
     }
-
     .quadradobranco {
-        margin-left: 0;
-        margin-bottom: 15px;
-        width: 90%;
-        max-width: 300px;
-        color: transparent; /* Esconde a letra 'a' */
+        margin: 20px auto;     /* Centraliza o quadrado e afasta do título 'DESTAQUES' */
+        width: 299px;          /* Força a largura original do desktop no celular */
+        height: 200px;         /* Força a altura original */
+        min-width: 299px;      /* Impede o celular de esmagar a largura */
+        min-height: 200px;     /* Impede o celular de achatar a altura */
+        display: block;        /* Garante o comportamento de bloco para centralizar */
+        color: transparent;    /* Oculta o caractere 'a' */
     }
-
+    
     .txt3dest {
         padding-left: 0;
         padding: 0 15px;
